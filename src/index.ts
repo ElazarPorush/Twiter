@@ -1,8 +1,14 @@
 import exp, {Express} from 'express'
 import 'dotenv/config'
+import authController from './controllers/authController'
+import userController from './controllers/userController'
+import postController from './controllers/postController'
 
 const app: Express = exp()
-console.log(process.env.PORT);
+
+app.use('/auth', authController)
+app.use('/user', userController)
+app.use('/post', postController)
 
 
 app.listen(process.env.PORT, () => {
